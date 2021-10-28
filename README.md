@@ -39,12 +39,6 @@ _If you don't have Composer installed, [instructions here](https://getcomposer.o
 php artisan key:generate
 ```
 
-#### Generate JWT keys for the .env file:
-
-```bash
-php artisan jwt:secret
-```
-
 #### Run the database migrations:
 
 ```bash
