@@ -21,12 +21,21 @@ Route::get('/', function () {
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
-        'name' => 'Data send from Laravel'
+        'name' => 'Data send from Laravel',
+        'title' => 'Home'
     ]);
 });
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    return Inertia::render('Dashboard', [
+        'title' => 'Dashboard'
+    ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/products', function () {
+    return Inertia::render('Products', [
+        'title' => 'Products'
+    ]);
+});

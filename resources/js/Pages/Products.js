@@ -1,12 +1,12 @@
 import React from "react";
-import { Link, Head } from "@inertiajs/inertia-react";
-import AppHead from "@/Components/AppHead";
+import ApplicationLogo from "@/Components/ApplicationLogo";
+import AppHead from '@/Components/AppHead'
+import { Link } from '@inertiajs/inertia-react'
 
-export default function Welcome(props) {
-    console.log(props.name);
+export default function products(props){
     return (
         <>
-            <AppHead title={props.title}/>
+            <AppHead title="About"/>
             <div className="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
                 <div className="fixed top-0 right-0 px-6 py-4 sm:block">
                     {props.auth.user ? (
@@ -20,10 +20,11 @@ export default function Welcome(props) {
                         <>
                             <Link
                                 href='/'
-                                className="ml-4 text-md font-semibold text-gray-700 underline"
+                                className="text-md font-semibold text-gray-700 underline"
                             >
                                 Home
                             </Link>
+
                             <Link
                                 href={route("login")}
                                 className="ml-4 text-md font-semibold text-gray-700 underline"
@@ -47,9 +48,10 @@ export default function Welcome(props) {
                     )}
                 </div>
                 <div>
-                    <h1 className="text-xl text-black">{props.name}</h1>
+                    <h1 className="text-xl text-black">Hi From Product</h1>
                 </div>
             </div>
         </>
     );
+
 }
