@@ -22,7 +22,7 @@ export default function Index(props) {
                 <div className="flex items-center justify-between mb-6">
                     <Link
                         className="px-6 py-3 rounded bg-indigo-700 text-white text-sm font-bold whitespace-nowrap hover:bg-orange-500 focus:bg-orange-500 focus:outline-none"
-                        href={route("user")}
+                        href={route("post-create")}
                     >
                         <span>Create</span>
                         <span className="hidden md:inline"> Post</span>
@@ -33,34 +33,42 @@ export default function Index(props) {
                         <thead>
                             <tr className="font-bold text-left">
                                 <th className="px-6 pt-5 pb-4">Title</th>
-                                <th className="px-6 pt-5 pb-4">Description</th>
-                                <th className="px-6 pt-5 pb-4" colSpan="2">
+                                <th className="px-6 pt-5 pb-4" colSpan='4'>Description</th>
+                                <th className="px-6 pt-5 pb-4 absolute right-80">
                                     Action
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            {/* {props.users.map(user => (
+                            {props.post.map(post => (
                                 <tr
-                                    key={user.id}
+                                    key={post.id}
                                     className="hover:bg-gray-100 focus-within:bg-gray-100"
                                 >
                                     <td className="border-t">
                                         <h5 className="flex items-center px-6 py-4 focus:text-indigo-700 focus:outline-none">
-                                            {user.name}
+                                            {post.title}
                                         </h5>
                                     </td>
-                                    <td className="border-t">
+                                    <td className="border-t" colSpan='4'>
                                         <h5 className="flex items-center px-6 py-4 focus:text-indigo-700 focus:outline-none">
-                                            {user.email}
+                                        {post.description.length > 120 ?
+                                            `${post.description.substring(0, 120)}...` : post.description
+                                        }
                                         </h5>
                                     </td>
-                                    <td className="border-t">
+                                    <td className="absolute right-20 mt-2">
                                         <Link as='button' href="#" className="bg-yellow-500 text-white inline items-center px-3 py-2 mx-2 focus:text-indigo-700 focus:outline-none">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 inline mx-1 my-auto" viewBox="0 0 20 20" fill="currentColor">
                                                 <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
                                             </svg>
                                                 Edit
+                                        </Link>
+                                        <Link as='button' href="#" className="bg-green-500 text-white inline items-center px-3 py-2 mx-2 focus:text-indigo-700 focus:outline-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 inline mx-1 my-auto" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                        </svg>
+                                                Accept
                                         </Link>
                                         <Link as='button' href="#" className="bg-red-500 text-white inline items-center px-3 py-2 mx-2 focus:text-indigo-700 focus:outline-none">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 inline mx-1 my-auto" viewBox="0 0 20 20" fill="currentColor">
@@ -70,12 +78,12 @@ export default function Index(props) {
                                         </Link>
                                     </td>
                                 </tr>
-                            ))} */}
-                            <tr>
+                            ))}
+                            {/* <tr>
                                 <td className="px-6 py-4 border-t" colSpan="4">
                                     No Post found.
                                 </td>
-                            </tr>
+                            </tr> */}
                         </tbody>
                     </table>
                 </div>

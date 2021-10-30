@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class PostController extends Controller
 {
@@ -28,7 +29,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Post/Create', [
+            'post' => Post::all(),
+            'title' => 'Create Post'
+        ]);
     }
 
     /**
@@ -39,7 +43,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required'
+        ]);
+
+        Post::create($validatedData);
+
+        return Redirect::route('post')->with('success', 'Post Created Successfully');
     }
 
     /**
