@@ -4,25 +4,28 @@ import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/inertia-react';
+import MainMenu from '@/Components/MainMenu';
 
 export default function Authenticated({ auth, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
     return (
         <div className="min-h-screen bg-gray-100">
-            <nav className="bg-white border-b border-gray-100">
+            {/* <nav className="bg-white border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex">
                             <div className="flex-shrink-0 flex items-center">
-                                <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto text-gray-500" />
+                                <Link href="/" className="text-xl font-bold">
+                                    <h1>Trash App</h1>
                                 </Link>
                             </div>
-
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                     Dashboard
+                                </NavLink>
+                                <NavLink href={route('user')} active={route().current('user')}>
+                                    User
                                 </NavLink>
                             </div>
                         </div>
@@ -109,15 +112,18 @@ export default function Authenticated({ auth, header, children }) {
                         </div>
                     </div>
                 </div>
-            </nav>
+            </nav> */}
 
             {header && (
                 <header className="bg-white shadow">
-                    <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">{header}</div>
+                    <div className="max-w-7xl mx-2 py-6 px-4 sm:px-6 lg:px-8">{header}</div>
                 </header>
             )}
 
-            <main>{children}</main>
+            <main className="flex flex-grow overflow-hidden">
+                <MainMenu className="flex-shrink-0 hidden h-screen w-56 p-12 overflow-y-auto bg-indigo-900 md:block"/>
+                {children}
+            </main>
         </div>
     );
 }

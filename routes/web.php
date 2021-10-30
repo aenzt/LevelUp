@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -27,7 +29,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard', [
+    return Inertia::render('Dashboard/Index', [
         'title' => 'Dashboard'
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -39,3 +41,10 @@ Route::get('/products', function () {
         'title' => 'Products'
     ]);
 });
+
+Route::get(
+    '/dashboard/user',
+    [UsersController::class, 'index']
+    )->middleware(['auth', 'verified'])->name('user');
+
+Route::get('/dashboard/post', [PostController::class, 'index'])->middleware(['auth', 'verified'])->name('post');
