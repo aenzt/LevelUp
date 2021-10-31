@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Foundation\Application;
@@ -36,11 +37,8 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/products', function () {
-    return Inertia::render('Products', [
-        'title' => 'Products'
-    ]);
-});
+Route::get('/leaderboard', [LeaderboardController::class, 'index'])->name('leaderboard');
+
 
 Route::get(
     '/dashboard/user',

@@ -11,7 +11,11 @@ export default function Welcome(props) {
             <div className="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
                 <Navbar props={props}/>
                 <div>
-                    <h1 className="text-xl text-black">{props.name}</h1>
+                    {props.auth.user ? (
+                        <h1 className="text-3xl font-bold text-black">Welcome {props.auth.user.name}!</h1>
+                    ) : (
+                        <h1 className="text-3xl font-bold text-black">Welcome Guest!</h1>
+                    )}
                 </div>
             </div>
         </>

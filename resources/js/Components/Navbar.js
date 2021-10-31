@@ -18,21 +18,21 @@ export default ({ props }) => {
                         </Link>
 
                         <Link
-                        href="/products"
+                        href="/leaderboard"
                         className={classNames('ml-4 px-2 py-2 text-lg font-semibold text-white', {
-                            'text-indigo-300 rounded-md underline' : props.title === 'Products'
+                            'text-indigo-300 rounded-md underline' : props.title === 'Leaderboard'
                         })}
                         >
-                        Products
+                        Leaderboard
                         </Link>
 
                         <Link
-                            href="/dashboard"
+                            href="#"
                             className={classNames('ml-4 px-2 py-2 text-lg font-semibold text-white', {
                                 'text-indigo-300 rounded-md underline' : props.title === 'Dashboard'
                             })}
                         >
-                            Dashboard
+                            Submit
                         </Link>
 
                         <Link
@@ -57,12 +57,12 @@ export default ({ props }) => {
                         </Link>
 
                         <Link
-                            href="/products"
+                            href="/leaderboard"
                             className={classNames('ml-4 px-2 py-2 text-lg font-semibold text-white', {
-                                'text-indigo-300 rounded-md underline': props.title === 'Products'
+                                'text-indigo-300 rounded-md underline': props.title === 'Leaderboard'
                             })}
                         >
-                            Products
+                            Leaderboard
                         </Link>
 
                         <Link
