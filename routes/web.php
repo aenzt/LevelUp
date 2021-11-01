@@ -3,6 +3,7 @@
 use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\SubmitController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -19,7 +20,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
+    return Inertia::render('Home/Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
@@ -39,6 +40,7 @@ require __DIR__.'/auth.php';
 
 Route::get('/leaderboard', [LeaderboardController::class, 'index'])->name('leaderboard');
 
+Route::get('/submit', [SubmitController::class, 'index'])->middleware(['auth', 'verified'])->name('submit');
 
 Route::get(
     '/dashboard/user',

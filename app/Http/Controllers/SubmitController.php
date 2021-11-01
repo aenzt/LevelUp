@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Post;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 
-class LeaderboardController extends Controller
+class SubmitController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,8 @@ class LeaderboardController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Home/Leaderboard', [
-            'users' => User::orderByDesc('score')->get(),
-            'title' => 'Leaderboard'
+        return Inertia::render('Home/Submit', [
+            'title' => 'Post'
         ]);
     }
 
@@ -45,10 +44,10 @@ class LeaderboardController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
         //
     }
@@ -56,10 +55,10 @@ class LeaderboardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
         //
     }
@@ -68,10 +67,10 @@ class LeaderboardController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -79,10 +78,10 @@ class LeaderboardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
         //
     }
