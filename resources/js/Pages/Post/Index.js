@@ -16,7 +16,7 @@ export default function Index(props) {
         >
             <AppHead title={props.title} />
 
-            <div className="w-full mx-auto sm:px-6 lg:px-8">
+            <div className="w-[90vw] mx-auto sm:px-6 lg:px-8 md:w-screen">
                 <h1 className="mt-14 text-3xl font-bold">Post</h1>
                 <div className="h-1 w-16 mb-6 bg-indigo-500 rounded"></div>
                 <div className="flex items-center justify-between mb-6">
@@ -32,9 +32,13 @@ export default function Index(props) {
                     <table className="w-full whitespace-nowrap">
                         <thead>
                             <tr className="font-bold text-left">
-                                <th className="px-6 pt-5 pb-4">Title</th>
-                                <th className="px-6 pt-5 pb-4" colSpan='4'>Description</th>
-                                <th className="px-6 pt-5 pb-4 absolute right-80">
+                                <th className="px-6 pt-5 pb-4">Sender's Name</th>
+                                <th className="px-6 pt-5 pb-4">Account's Email</th>
+                                <th className="px-6 pt-5 pb-4">Paper</th>
+                                <th className="px-6 pt-5 pb-4">Glass</th>
+                                <th className="px-6 pt-5 pb-4">Metal</th>
+                                <th className="px-6 pt-5 pb-4">Plastic</th>
+                                <th className="px-6 pt-5 pb-4 border-b">
                                     Action
                                 </th>
                             </tr>
@@ -47,34 +51,49 @@ export default function Index(props) {
                                 >
                                     <td className="border-t">
                                         <h5 className="flex items-center px-6 py-4 focus:text-indigo-700 focus:outline-none">
-                                            {post.title}
+                                            {post.firstName} {post.lastName}
                                         </h5>
                                     </td>
-                                    <td className="border-t" colSpan='4'>
+                                    <td className="border-t">
                                         <h5 className="flex items-center px-6 py-4 focus:text-indigo-700 focus:outline-none">
-                                        {post.description.length > 120 ?
-                                            `${post.description.substring(0, 120)}...` : post.description
-                                        }
+                                            {props.auth.user.email}
                                         </h5>
                                     </td>
-                                    <td className="absolute right-20 mt-2">
+                                    <td className="border-t">
+                                        <h5 className="flex items-center px-6 py-4 focus:text-indigo-700 focus:outline-none">
+                                        {post.paperType} grams
+                                        </h5>
+                                    </td>
+                                    <td className="border-t">
+                                        <h5 className="flex items-center px-6 py-4 focus:text-indigo-700 focus:outline-none">
+                                        {post.glassType} grams
+                                        </h5>
+                                    </td>
+                                    <td className="border-t">
+                                        <h5 className="flex items-center px-6 py-4 focus:text-indigo-700 focus:outline-none">
+                                        {post.metalType} grams
+                                        </h5>
+                                    </td>
+                                    <td className="border-t">
+                                        <h5 className="flex items-center px-6 py-4 focus:text-indigo-700 focus:outline-none">
+                                        {post.plasticType} grams
+                                        </h5>
+                                    </td>
+                                    <td className="mt-2">
                                         <Link as='button' href="#" className="bg-yellow-500 text-white inline items-center px-3 py-2 mx-2 focus:text-indigo-700 focus:outline-none">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 inline mx-1 my-auto" viewBox="0 0 20 20" fill="currentColor">
                                                 <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
                                             </svg>
-                                                Edit
                                         </Link>
                                         <Link as='button' href="#" className="bg-green-500 text-white inline items-center px-3 py-2 mx-2 focus:text-indigo-700 focus:outline-none">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 inline mx-1 my-auto" viewBox="0 0 20 20" fill="currentColor">
                                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                         </svg>
-                                                Accept
                                         </Link>
                                         <Link as='button' href="#" className="bg-red-500 text-white inline items-center px-3 py-2 mx-2 focus:text-indigo-700 focus:outline-none">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 inline mx-1 my-auto" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
                                             </svg>
-                                                Delete
                                         </Link>
                                     </td>
                                 </tr>

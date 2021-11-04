@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class SubmitController extends Controller
 {
@@ -38,7 +39,30 @@ class SubmitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validatedData = $request->validate([
+            'firstName' =>  'required|max:255',
+            'lastName' =>  'required|max:255',
+            'plasticType' => 'integer|nullable',
+            'metalType' => 'integer|nullable',
+            'paperType'=> 'integer|nullable',
+            'glassType'=> 'integer|nullable',
+            'streetAddress'=> 'required',
+            'province'=> 'required',
+            'city'=> 'required',
+            'postalCode'=> 'required|integer',
+            'userId'=> 'required'
+        ], [
+            'plasticType.integer' => 'The :attribute must be a number',
+            'paperType.integer' => 'The :attribute must be a number',
+            'metalType.integer' => 'The :attribute must be a number',
+            'glassType.integer' => 'The :attribute must be a number',
+            'postalCode.integer' => 'The :attribute must be a number',
+        ]);
+
+        Post::create($validatedData);
+
+        return Redirect::route('submit')->with('success', 'Submited Successfully');
     }
 
     /**

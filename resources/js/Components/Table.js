@@ -3,8 +3,8 @@ import { Link } from '@inertiajs/inertia-react';
 
 export default ({ props }) => {
     return (
-        <div className="overflow-x-auto bg-white rounded shadow">
-            <table className="w-full whitespace-nowrap">
+        <div className="bg-white rounded shadow">
+            <table className="w-screen -mt-3 md:mt-0 md:whitespace-nowrap md:w-full">
                 <thead className='bg-indigo-900'>
                     <tr className="font-bold text-left">
                         <th className="px-6 pt-5 pb-4 text-white font-extrabold">Name</th>

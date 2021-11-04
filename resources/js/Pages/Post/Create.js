@@ -47,7 +47,7 @@ export default function Index(props) {
                         </div>
                         <div className="flex items-center justify-end px-8 py-4 bg-gray-100 border-t border-gray-200">
                             <LoadingButton
-                                loading={false}
+                                loading={processing}
                                 type="submit"
                                 className="px-6 py-3 rounded bg-indigo-700 text-white text-sm font-bold whitespace-nowrap hover:bg-orange-500 focus:bg-orange-500"
                             >

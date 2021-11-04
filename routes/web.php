@@ -41,6 +41,7 @@ require __DIR__.'/auth.php';
 Route::get('/leaderboard', [LeaderboardController::class, 'index'])->name('leaderboard');
 
 Route::get('/submit', [SubmitController::class, 'index'])->middleware(['auth', 'verified'])->name('submit');
+Route::post('/submit', [SubmitController::class, 'store'])->middleware(['auth', 'verified'])->name('submit-store');
 
 Route::get(
     '/dashboard/user',

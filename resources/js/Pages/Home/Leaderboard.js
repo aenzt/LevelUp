@@ -11,7 +11,7 @@ export default function Leaderboard(props){
             <div className='absolute top-0 w-full'>
                     <NavbarNew props={props}/>
             </div>
-                <div className='container mx-auto'>
+                <div className='container mx-auto my-14'>
                     <h1 className="text-3xl text-center font-bold text-black p-5">Top Leaderboard</h1>
                     <Table props={props}/>
                 </div>
