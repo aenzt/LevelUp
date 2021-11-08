@@ -16,7 +16,8 @@ export default function Submit(props) {
         province: '',
         city: '',
         postalCode: '',
-        userId: props.auth.user.id
+        userId: props.auth.user.id,
+        status: false
       });
 
     const { flash } = usePage().props;

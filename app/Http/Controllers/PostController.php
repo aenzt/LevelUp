@@ -61,7 +61,11 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return Inertia::render('Post/Individual', [
+            'post' => $post,
+            'title' => 'Create Post',
+            'email' => $post->User()
+        ]);
     }
 
     /**
@@ -70,9 +74,19 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Post $post, Request $request)
     {
-        //
+        if ($request->status == "true"){
+            $status = true;
+            $post->status = $status;
+            $post->save();
+            return Redirect::route('post')->with('success', 'Post has been accepted');
+        } else if($request->status == "false") {
+            $status = false;
+            $post->status = 2;
+            $post->save();
+            return Redirect::route('post')->with('success', 'Post has been denied');
+        }
     }
 
     /**
@@ -95,6 +109,6 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        ddd($post);
     }
 }

@@ -26,6 +26,7 @@ class CreatePostsTable extends Migration
             $table->string('province');
             $table->string('postalCode');
             $table->string('city');
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }
