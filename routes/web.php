@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\LeaderboardController;
+use App\Models\User;
+use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\SubmitController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+use App\Http\Controllers\LeaderboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,8 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
         'name' => 'Data send from Laravel',
-        'title' => 'Home'
+        'title' => 'Home',
+        'users' => User::orderByDesc('score')->get(),
     ]);
 });
 
@@ -54,3 +56,13 @@ Route::get('/dashboard/post/edit/{post}', [PostController::class, 'edit'])->midd
 Route::delete('/dashboard/post/{post}', [PostController::class, 'destroy'])->middleware(['auth', 'verified'])->name('post-delete');
 Route::get('/dashboard/post/create', [PostController::class, 'create'])->middleware(['auth', 'verified'])->name('post-create');
 Route::post('/dashboard/post', [PostController::class, 'store'])->middleware(['auth', 'verified'])->name('post-store');
+
+Route::get('/fatih', function(){
+    return Inertia::render('Home/Wpis');
+});
+
+Route::get('/fatih2', function(){
+    return Inertia::render('Home/WWelcome', [
+        'users' => User::orderByDesc('score')->get(),
+    ]);
+});

@@ -1,6 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import 'Main';
 
 .form-label {
     @apply mb-2 block text-gray-800 select-none;
@@ -35,3 +36,4 @@
   .form-select.error {
     @apply border-red-400 focus:border-red-400 focus:ring-red-400;
   }
+

@@ -8,6 +8,7 @@ export default function Submit(props) {
     const { data, setData, errors, post, processing } = useForm({
         firstName: '',
         lastName: '',
+        email: props.auth.user.email,
         plasticType: '',
         metalType: '',
         paperType: '',
@@ -28,9 +29,9 @@ export default function Submit(props) {
     }
 
     return (
-        <div className='bg-gray-200'>
+        <div className='bg-gray-200 w-screen'>
             <AppHead title={props.title} />
-            <div className="relative flex justify-center h-full bg-gray-200 dark:bg-gray-900 sm:items-center sm:pt-0">
+            <div className="relative flex justify-center w-full h-full bg-gray-200 dark:bg-gray-900 sm:items-center sm:pt-0">
                 <div className='absolute top-0 w-full'>
                     <NavbarNew props={props} />
                 </div>

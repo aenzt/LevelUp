@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->foreignId('userId');
             $table->string('firstName');
             $table->string('lastName');
+            $table->string('email');
             $table->integer('plasticType')->nullable();
             $table->integer('paperType')->nullable();
             $table->integer('glassType')->nullable();

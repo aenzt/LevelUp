@@ -16,7 +16,7 @@ export default function NavbarNew({props}) {
         { name: 'Submit', href: '/submit', current: false },
       ]
     return (
-        <Disclosure as="nav" className="bg-indigo-900">
+        <Disclosure as="nav" className="bg-indigo-900 w-screen">
         {({ open }) => (
             <>
             <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -79,7 +79,7 @@ export default function NavbarNew({props}) {
                             /> */}
                             <span className="text-white font-semibold p-2 hidden md:block">{props.auth.user.name}</span>
                                 <span className='my-auto text-white'>
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 -ml-2" viewBox="0 0 20 20" fill="currentColor">
                                         <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                                     </svg>
                                 </span>
@@ -94,7 +94,7 @@ export default function NavbarNew({props}) {
                             leaveFrom="transform opacity-100 scale-100"
                             leaveTo="transform opacity-0 scale-95"
                         >
-                            <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                            <Menu.Items className="origin-top-right absolute z-30 right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <Menu.Item>
                                 {({ active }) => (
                                 <Link

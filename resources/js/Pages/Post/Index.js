@@ -57,7 +57,7 @@ export default function Index(props) {
                                     </td>
                                     <td className="border-t">
                                         <h5 className="flex items-center px-6 py-4 focus:text-indigo-700 focus:outline-none">
-                                            {props.auth.user.email}
+                                            {post.email}
                                         </h5>
                                     </td>
                                     <td className="border-t">

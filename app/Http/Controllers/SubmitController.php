@@ -43,6 +43,7 @@ class SubmitController extends Controller
         $validatedData = $request->validate([
             'firstName' =>  'required|max:255',
             'lastName' =>  'required|max:255',
+            'email' => 'required|max:255',
             'plasticType' => 'integer|nullable',
             'metalType' => 'integer|nullable',
             'paperType'=> 'integer|nullable',
