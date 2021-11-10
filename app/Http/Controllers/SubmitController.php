@@ -17,7 +17,7 @@ class SubmitController extends Controller
     public function index()
     {
         return Inertia::render('Home/Submit', [
-            'title' => 'Post'
+            'title' => 'Submit'
         ]);
     }
 

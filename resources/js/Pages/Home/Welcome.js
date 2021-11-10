@@ -3,6 +3,7 @@ import { Icon } from '@iconify/react';
 import { Link } from "@inertiajs/inertia-react";
 import Coastline from "./coastline.jpg";
 import NavbarNew from "@/Components/NavbarNew";
+import AppHead from "@/Components/AppHead";
 
 export default function Welcome(props) {
     const [timerDays, setTimerDays] = useState("00");
@@ -11,6 +12,16 @@ export default function Welcome(props) {
     const [timerSeconds, setTimerSeconds] = useState("00");
 
     let interval = useRef();
+    let rank = 0;
+
+    if(props.auth.user){
+        for (let index = 0; index < props.users.length; index++) {
+            if(props.users[index].id == props.auth.user.id){
+                rank = index+1;
+                break;
+            }
+        }
+    }
 
     const startTimer = () => {
         const countdown = new Date("January 1, 2022 00:00:00").getTime();
@@ -115,6 +126,7 @@ export default function Welcome(props) {
 
     return (
         <>
+        <AppHead title={props.title} />
         <div className="z-0">
             <NavbarNew props={props}/>
         </div>
@@ -133,7 +145,7 @@ export default function Welcome(props) {
                     <div className="w-full border-b-2"></div>
                     <div className="flex flex-col justify-center items-center h-3/4 mx-1">
                         <a className="text-xl text-center lg:text-3xl font-bold text-indigo-900">{timerDays} days {timerHours} hours {timerMinutes} minutes {timerSeconds} seconds</a>
-                        <Link href="#" className="text-sm font-semibold text-white mt-2 p-2 bg-indigo-900 rounded shadow"><span>Submit Here!</span></Link>
+                        <Link href="/submit" className="text-sm font-semibold text-white mt-2 p-2 bg-indigo-900 rounded shadow"><span>Submit Here!</span></Link>
                     </div>
                 </div>
                 <div className="shadow-lg rounded-md w-72 lg:w-3/5 h-60 lg:h-52 my-4 lg:my-0">
@@ -148,18 +160,18 @@ export default function Welcome(props) {
             </div>
             {props.auth.user ? (
                 <div className="grid lg:grid-cols-2 justify-items-center my-5 mx-1">
-                <div className="shadow-lg rounded w-72 lg:w-3/5 h-60 lg:h-32">
+                <div className="shadow-lg rounded w-72 lg:w-3/5 h-48 lg:h-32">
                     <a className="flex justify-center text-xl font-semibold text-indigo-900 mt-1.5">Your Pearl</a>
                     <div className="w-full border-b-2"></div>
                     <div className="flex flex-col justify-center items-center h-3/4 mx-1">
                         <a className="text-xl text-center lg:text-3xl font-bold text-indigo-900">{props.auth.user.score} pearls</a>
                     </div>
                 </div>
-                <div className="shadow-lg rounded-md w-72 lg:w-3/5 h-60 lg:h-32 my-4 lg:my-0">
+                <div className="shadow-lg rounded-md w-72 lg:w-3/5 h-48 lg:h-32 my-4 lg:my-0">
                     <a className="flex justify-center text-xl font-semibold text-indigo-900 mt-1.5">Current Rank</a>
                     <div className="w-full border-b-2"></div>
                     <div className="flex flex-col justify-center items-center h-3/4 mx-1">
-                        <a className="text-xl text-center lg:text-3xl font-bold text-indigo-900">#1</a>
+                        <a className="text-xl text-center lg:text-3xl font-bold text-indigo-900">#{rank}</a>
                     </div>
                 </div>
             </div>

@@ -13,7 +13,8 @@ export default function NavbarNew({props}) {
     const navigation = [
         { name: 'Dashboard', href: '/', current: props.title=='Home' },
         { name: 'Leaderboard', href: '/leaderboard', current: props.title=='Leaderboard' },
-        { name: 'Submit', href: '/submit', current: false },
+        { name: 'Submit', href: '/submit', current: props.title=='Submit' },
+        { name: 'History', href: '/history', current: props.title=='History' },
       ]
     return (
         <Disclosure as="nav" className="bg-indigo-900 w-screen">
@@ -125,8 +126,8 @@ export default function NavbarNew({props}) {
                 </div>
             </div>
 
-            <Disclosure.Panel className="sm:hidden">
-                <div className="px-2 pt-2 pb-3 space-y-1">
+            <Disclosure.Panel className="sm:hidden z-40">
+                <div className="px-2 pt-2 pb-3 space-y-1 z-40">
                 {navigation.map((item) => (
                     <Disclosure.Button
                     key={item.name}

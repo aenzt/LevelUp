@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HistoryController;
 use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
@@ -57,12 +58,4 @@ Route::delete('/dashboard/post/{post}', [PostController::class, 'destroy'])->mid
 Route::get('/dashboard/post/create', [PostController::class, 'create'])->middleware(['auth', 'verified'])->name('post-create');
 Route::post('/dashboard/post', [PostController::class, 'store'])->middleware(['auth', 'verified'])->name('post-store');
 
-Route::get('/fatih', function(){
-    return Inertia::render('Home/Wpis');
-});
-
-Route::get('/fatih2', function(){
-    return Inertia::render('Home/WWelcome', [
-        'users' => User::orderByDesc('score')->get(),
-    ]);
-});
+Route::get('/history', [HistoryController::class, 'index'])->middleware(['auth', 'verified'])->name('history');

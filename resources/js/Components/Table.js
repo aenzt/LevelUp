@@ -7,6 +7,7 @@ export default ({ props }) => {
             <table className="w-screen -mt-3 md:mt-0 md:whitespace-nowrap md:w-full">
                 <thead className='bg-indigo-900'>
                     <tr className="font-bold text-left">
+                        <th className="px-6 pt-5 pb-4 text-white font-extrabold">Rank</th>
                         <th className="px-6 pt-5 pb-4 text-white font-extrabold">Name</th>
                         <th className="px-6 pt-5 pb-4 text-white font-extrabold">Score</th>
                     </tr>
@@ -17,6 +18,11 @@ export default ({ props }) => {
                                     key={user.id}
                                     className="hover:bg-gray-100 focus-within:bg-gray-100"
                                 >
+                                    <td className="border-t">
+                                        <h5 className="flex items-center font-semibold px-6 py-4 focus:text-indigo-700 focus:outline-none">
+                                            {props.users.indexOf(user) + 1}
+                                        </h5>
+                                    </td>
                                     <td className="border-t">
                                         <h5 className="flex items-center font-semibold px-6 py-4 focus:text-indigo-700 focus:outline-none">
                                             {user.name}
