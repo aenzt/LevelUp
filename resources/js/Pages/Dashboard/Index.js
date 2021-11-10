@@ -15,7 +15,8 @@ export default function Index(props) {
             <div className="w-full mx-auto sm:px-6 lg:px-8">
                 <h1 className="mt-14 text-3xl font-bold">Dashboard</h1>
                 <div className="h-1 w-[160px] mb-6 bg-indigo-500 rounded"></div>
-                <div className="overflow-x-auto bg-white rounded shadow">
+                <a className="p-1 text-lg">You Found Me! Explore this dashboard</a>
+                <div className="bg-white rounded shadow flex flex-1">
                 </div>
             </div>
         </Authenticated>

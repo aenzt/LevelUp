@@ -82,7 +82,7 @@ export default function Submit(props) {
                                                 {errors.lastName && <div className="form-error">{errors.lastName}</div>}
                                             </div>
 
-                                            <div className="col-span-3 sm:col-span-3">
+                                            <div className="col-span-6 sm:col-span-3">
                                                 <label htmlFor="plasticType" className="block text-sm font-bold text-gray-700">
                                                     Plastic
                                                 </label>
@@ -97,7 +97,7 @@ export default function Submit(props) {
                                                 {errors.plasticType && <div className="form-error">{errors.plasticType}</div>}
                                             </div>
 
-                                            <div className="col-span-3 sm:col-span-3">
+                                            <div className="col-span-6 sm:col-span-3">
                                                 <label htmlFor="metalType" className="block text-sm font-bold text-gray-700">
                                                     Metal
                                                 </label>
@@ -112,7 +112,7 @@ export default function Submit(props) {
                                                 {errors.metalType && <div className="form-error">{errors.metalType}</div>}
                                             </div>
 
-                                            <div className="col-span-3 sm:col-span-3">
+                                            <div className="col-span-6 sm:col-span-3">
                                                 <label htmlFor="paperType" className="block text-sm font-bold text-gray-700">
                                                     Paper
                                                 </label>
@@ -127,7 +127,7 @@ export default function Submit(props) {
                                                 {errors.paperType && <div className="form-error">{errors.paperType}</div>}
                                             </div>
 
-                                            <div className="col-span-3 sm:col-span-3">
+                                            <div className="col-span-6 sm:col-span-3">
                                                 <label htmlFor="glassType" className="block text-sm font-bold text-gray-700">
                                                     Glass
                                                 </label>

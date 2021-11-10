@@ -10247,8 +10247,11 @@ function Index(props) {
         children: "Dashboard"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "h-1 w-[160px] mb-6 bg-indigo-500 rounded"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+        className: "p-1 text-lg",
+        children: "You Found Me! Explore this dashboard"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "overflow-x-auto bg-white rounded shadow"
+        className: "bg-white rounded shadow flex flex-1"
       })]
     })]
   });
@@ -10488,7 +10491,7 @@ function Submit(props) {
                         children: errors.lastName
                       })]
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-                      className: "col-span-3 sm:col-span-3",
+                      className: "col-span-6 sm:col-span-3",
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
                         htmlFor: "plasticType",
                         className: "block text-sm font-bold text-gray-700",
@@ -10507,7 +10510,7 @@ function Submit(props) {
                         children: errors.plasticType
                       })]
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-                      className: "col-span-3 sm:col-span-3",
+                      className: "col-span-6 sm:col-span-3",
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
                         htmlFor: "metalType",
                         className: "block text-sm font-bold text-gray-700",
@@ -10526,7 +10529,7 @@ function Submit(props) {
                         children: errors.metalType
                       })]
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-                      className: "col-span-3 sm:col-span-3",
+                      className: "col-span-6 sm:col-span-3",
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
                         htmlFor: "paperType",
                         className: "block text-sm font-bold text-gray-700",
@@ -10545,7 +10548,7 @@ function Submit(props) {
                         children: errors.paperType
                       })]
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-                      className: "col-span-3 sm:col-span-3",
+                      className: "col-span-6 sm:col-span-3",
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
                         htmlFor: "glassType",
                         className: "block text-sm font-bold text-gray-700",
