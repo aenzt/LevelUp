@@ -99,7 +99,7 @@ export default function Individual(props) {
                         <li className='table-row'><b className='table-cell pr-2'>Paper</b>: {props.post.paperType} grams</li>
                         <li className='table-row'><b className='table-cell pr-2'>Glass</b>: {props.post.glassType} grams</li>
                         <li className='table-row'><b className='table-cell pr-2'>Metal</b>: {props.post.metalType} grams</li>
-                        <li className='table-row'><b className='table-cell pr-2'>Total Points</b>: {(props.post.plasticType * 2) + (props.post.paperType * 2) + (props.post.glassType * 2) + (props.post.metalType * 2)} points</li>
+                        <li className='table-row'><b className='table-cell pr-2'>Total Points</b>: {(props.post.plasticType) + (props.post.paperType) + (props.post.glassType) + (props.post.metalType)} points</li>
                         <li className='table-row'><b className='table-cell pr-2'>Trash Photos</b>:<img className='inline mx-2 my-1 max-w-lg max-h-80 p-1 bg-indigo-200' src={showImage() + props.post.trashImage}></img></li>
                         <li className='table-row'><b className='table-cell pr-2'>Receipt Photos</b>:<img className='inline mx-2 my-1 max-w-lg max-h-80 p-1 bg-indigo-200' src={showImage() + props.post.receiptImage}></img></li>
                         <li className='table-row'>

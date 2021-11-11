@@ -11874,7 +11874,7 @@ function Individual(props) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("b", {
               className: "table-cell pr-2",
               children: "Total Points"
-            }), ": ", props.post.plasticType * 2 + props.post.paperType * 2 + props.post.glassType * 2 + props.post.metalType * 2, " points"]
+            }), ": ", props.post.plasticType + props.post.paperType + props.post.glassType + props.post.metalType, " points"]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("li", {
             className: "table-row",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("b", {
