@@ -11741,7 +11741,7 @@ function Individual(props) {
   console.log(showImage() + props.post.trashImage);
 
   function showImage() {
-    return "/storage/";
+    return "/uploads/";
   }
 
   var MySwal = sweetalert2_react_content__WEBPACK_IMPORTED_MODULE_6___default()((sweetalert2__WEBPACK_IMPORTED_MODULE_5___default()));

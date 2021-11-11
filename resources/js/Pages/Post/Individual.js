@@ -9,7 +9,7 @@ import withReactContent from 'sweetalert2-react-content';
 export default function Individual(props) {
     console.log(showImage() + props.post.trashImage);
     function showImage() {
-        return "/storage/"
+        return "/uploads/"
     }
 
     const MySwal = withReactContent(Swal);
