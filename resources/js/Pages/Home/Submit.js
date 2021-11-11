@@ -62,7 +62,7 @@ export default function Submit(props) {
                 <div className='absolute top-0 w-full'>
                     <NavbarNew props={props} />
                 </div>
-                <div className='flex-col mx-auto flex bg-gray-200 w-full justify-center h-full lg:h-screen mt-20 lg:mt-10'>
+                <div className='flex-col mx-auto flex bg-gray-200 w-full justify-center h-full lg:h-screen mt-20 lg:mt-28 xl:mt-36'>
                     <h1 className="text-3xl text-center font-bold text-black p-3 flex justify-center mt-0 lg:-mt-24">Submit Form</h1>
                     <div className="hidden sm:block" aria-hidden="true">
                         <div className="py-5">

@@ -10465,7 +10465,7 @@ function Submit(props) {
           props: props
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-        className: "flex-col mx-auto flex bg-gray-200 w-full justify-center h-full lg:h-screen mt-20 lg:mt-10",
+        className: "flex-col mx-auto flex bg-gray-200 w-full justify-center h-full lg:h-screen mt-20 lg:mt-28 xl:mt-36",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h1", {
           className: "text-3xl text-center font-bold text-black p-3 flex justify-center mt-0 lg:-mt-24",
           children: "Submit Form"

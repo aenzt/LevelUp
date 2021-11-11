@@ -824,6 +824,10 @@ select {
 .relative {
 	position: relative;
 }
+.sticky {
+	position: -webkit-sticky;
+	position: sticky;
+}
 .inset-0 {
 	top: 0px;
 	right: 0px;
@@ -3080,6 +3084,14 @@ select {
 		margin-top: -6rem;
 	}
 
+	.lg\:mt-20 {
+		margin-top: 5rem;
+	}
+
+	.lg\:mt-28 {
+		margin-top: 7rem;
+	}
+
 	.lg\:block {
 		display: block;
 	}
@@ -3112,6 +3124,11 @@ select {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
+	.lg\:bg-red-200 {
+		--tw-bg-opacity: 1;
+		background-color: rgba(254, 202, 202, var(--tw-bg-opacity));
+	}
+
 	.lg\:px-8 {
 		padding-left: 2rem;
 		padding-right: 2rem;
@@ -3125,6 +3142,25 @@ select {
 	.lg\:text-3xl {
 		font-size: 1.875rem;
 		line-height: 2.25rem;
+	}
+}
+@media (min-width: 1280px) {
+
+	.xl\:mt-56 {
+		margin-top: 14rem;
+	}
+
+	.xl\:mt-48 {
+		margin-top: 12rem;
+	}
+
+	.xl\:mt-36 {
+		margin-top: 9rem;
+	}
+
+	.xl\:bg-red-200 {
+		--tw-bg-opacity: 1;
+		background-color: rgba(254, 202, 202, var(--tw-bg-opacity));
 	}
 }
 
