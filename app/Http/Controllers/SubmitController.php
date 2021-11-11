@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -39,11 +40,13 @@ class SubmitController extends Controller
      */
     public function store(Request $request)
     {
-
+        $points = ($request->plasticType + $request->metalType + $request->paperType + $request->glassType);
         $validatedData = $request->validate([
             'firstName' =>  'required|max:255',
             'lastName' =>  'required|max:255',
             'email' => 'required|max:255',
+            'trashImage' => 'image|file|max:2048|mimes:jpg,jpeg,png',
+            'receiptImage' => 'image|file|max:2048|mimes:jpg,jpeg,png',
             'plasticType' => 'required|integer',
             'metalType' => 'required|integer',
             'paperType'=> 'required|integer',
@@ -61,7 +64,13 @@ class SubmitController extends Controller
             'postalCode.integer' => 'The :attribute must be a number',
         ]);
 
+        $validatedData['trashImage'] = $request->file('trashImage')->store('post-images');
+        $validatedData['receiptImage'] = $request->file('receiptImage')->store('post-images');
         Post::create($validatedData);
+
+        $user = User::find(auth()->user()->id);
+        $user->score = $points + $user->score;
+        $user->save();
 
         return Redirect::route('submit')->with('success', 'Submited Successfully');
     }

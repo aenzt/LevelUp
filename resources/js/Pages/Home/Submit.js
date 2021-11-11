@@ -3,6 +3,9 @@ import AppHead from '@/Components/AppHead'
 import NavbarNew from "@/Components/NavbarNew";
 import { useForm, usePage } from "@inertiajs/inertia-react";
 import FlashMessages from "@/Components/FlashMessages";
+import Swal from "sweetalert2";
+import withReactContent from 'sweetalert2-react-content';
+import LoadingButton from "@/Components/LoadingButton";
 
 export default function Submit(props) {
     const { data, setData, errors, post, processing } = useForm({
@@ -18,14 +21,38 @@ export default function Submit(props) {
         city: '',
         postalCode: '',
         userId: props.auth.user.id,
-        status: false
+        status: false,
+        trashImage: null,
+        receiptImage: null
       });
 
     const { flash } = usePage().props;
+    const MySwal = withReactContent(Swal)
 
     function handleSubmit(e){
         e.preventDefault();
-        post(route('submit-store'));
+        Swal.fire({
+            title: 'Processing',
+            showCancelButton: false,
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading()
+            }
+        })
+        post(route('submit-store'), {
+            onSuccess: () => MySwal.fire({
+                title: "Submitted Succesfully",
+                icon: "success",
+                showConfirmButton: false,
+                timer: 2500
+            }),
+            onError: () => MySwal.fire({
+                title: "Submission Failed",
+                icon: "error",
+                showConfirmButton: false,
+                timer: 2500
+            }),
+        });
     }
 
     return (
@@ -220,13 +247,13 @@ export default function Submit(props) {
                                                                 strokeLinejoin="round"
                                                             />
                                                         </svg>
-                                                        <div className="flex text-sm text-gray-600">
+                                                        <div className="flex text-sm text-gray-600 items-center justify-center">
                                                             <label
                                                                 htmlFor="file-upload"
                                                                 className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                                                             >
-                                                                <span>Upload a file</span>
-                                                                <input id="file-upload" name="file-upload" type="file" className="sr-only" />
+                                                                <input id="file-upload" accept="image/png, image/jpeg, image/jpg" name="file-upload" type="file" className="w-52" onChange={e => setData('trashImage', e.target.files[0])}/>
+                                                                {errors.trashImage && <div className="form-error">{errors.trashImage}</div>}
                                                             </label>
                                                         </div>
                                                         <p className="text-xs text-gray-500">PNG, JPG, up to 3MB</p>
@@ -257,8 +284,8 @@ export default function Submit(props) {
                                                                 htmlFor="file-upload"
                                                                 className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                                                             >
-                                                                <span>Upload a file</span>
-                                                                <input id="file-upload" name="file-upload" type="file" className="sr-only" />
+                                                                <input id="file-upload" accept="image/png, image/jpeg, image/jpg" name="file-upload" type="file" className="w-52" onChange={e => setData('receiptImage', e.target.files[0])}/>
+                                                                {errors.receiptImage && <div className="form-error">{errors.receiptImage}</div>}
                                                             </label>
                                                         </div>
                                                         <p className="text-xs text-gray-500">PNG, JPG, up to 3MB</p>
@@ -268,12 +295,13 @@ export default function Submit(props) {
                                         </div>
                                     </div>
                                     <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                                        <button
+                                        <LoadingButton
                                             type="submit"
+                                            loading={processing}
                                             className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                         >
                                             Submit
-                                        </button>
+                                        </LoadingButton>
                                     </div>
                                 </div>
                             </form>

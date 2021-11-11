@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -17,7 +18,7 @@ class PostController extends Controller
     public function index()
     {
         return Inertia::render('Post/Index', [
-            'post' => Post::all(),
+            'post' => Post::orderByDesc('created_at')->get(),
             'title' => 'Post'
         ]);
     }
@@ -76,17 +77,20 @@ class PostController extends Controller
      */
     public function edit(Post $post, Request $request)
     {
+        $points = ($post->plasticType + $post->metalType + $post->paperType + $post->glassType);
         if ($request->status == "true"){
             $status = true;
             $post->status = $status;
             $post->save();
-            return Redirect::route('post')->with('success', 'Post has been accepted');
+            $user = User::find(auth()->user()->id);
+            $user->score = $points + $user->score;
+            $user->save();
         } else if($request->status == "false") {
             $status = false;
             $post->status = 2;
             $post->save();
-            return Redirect::route('post')->with('success', 'Post has been denied');
         }
+        return Redirect::route('post')->with('success', 'Post has been Edited!');
     }
 
     /**

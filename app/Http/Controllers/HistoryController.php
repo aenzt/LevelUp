@@ -17,7 +17,7 @@ class HistoryController extends Controller
     {
         return Inertia::render('Home/History', [
             'title' => 'History',
-            'posts' => Post::where('userId', auth()->user()->id)->orderBy('status', 'asc')->get()
+            'posts' => Post::where('userId', auth()->user()->id)->orderBy('created_at', 'desc')->get()
         ]);
     }
 }

@@ -31,7 +31,7 @@ Route::get('/', function () {
         'title' => 'Home',
         'users' => User::orderByDesc('score')->get(),
     ]);
-});
+})->name('home');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard/Index', [
@@ -53,7 +53,7 @@ Route::get(
 
 Route::get('/dashboard/post', [PostController::class, 'index'])->middleware(['auth', 'verified'])->name('post');
 Route::get('/dashboard/post/{post}', [PostController::class, 'show'])->middleware(['auth', 'verified'])->name('post-individual');
-Route::get('/dashboard/post/edit/{post}', [PostController::class, 'edit'])->middleware(['auth', 'verified'])->name('post-edit');
+Route::post('/dashboard/post/edit/{post}', [PostController::class, 'edit'])->middleware(['auth', 'verified'])->name('post-edit');
 Route::delete('/dashboard/post/{post}', [PostController::class, 'destroy'])->middleware(['auth', 'verified'])->name('post-delete');
 Route::get('/dashboard/post/create', [PostController::class, 'create'])->middleware(['auth', 'verified'])->name('post-create');
 Route::post('/dashboard/post', [PostController::class, 'store'])->middleware(['auth', 'verified'])->name('post-store');

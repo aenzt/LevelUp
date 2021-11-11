@@ -19,6 +19,8 @@ class CreatePostsTable extends Migration
             $table->string('firstName');
             $table->string('lastName');
             $table->string('email');
+            $table->string('trashImage');
+            $table->string('receiptImage');
             $table->integer('plasticType')->nullable();
             $table->integer('paperType')->nullable();
             $table->integer('glassType')->nullable();

@@ -121,7 +121,7 @@ export default function Authenticated({ auth, header, children }) {
             )}
 
             <main className="flex flex-grow overflow-hidden">
-                <MainMenu className="flex-shrink-0 hidden h-screen w-56 p-12 overflow-y-auto bg-indigo-900 md:block"/>
+                <MainMenu className="flex-shrink-0 hidden min-h-screen w-56 p-12 overflow-y-auto bg-indigo-900 md:block"/>
                 {children}
             </main>
         </div>
