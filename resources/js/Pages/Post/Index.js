@@ -35,7 +35,10 @@ export default function Index(props) {
                 })
                 Inertia.post(link, {}, {
                     preserveScroll: true,
-                    onSuccess: () => Swal.close()
+                    onSuccess: () => Swal.fire({
+                        icon: 'success',
+                        title: 'Successfully denied the post',
+                    })
                 })
             }
         })

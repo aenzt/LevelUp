@@ -11477,7 +11477,10 @@ function Index(props) {
         _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__.Inertia.post(link, {}, {
           preserveScroll: true,
           onSuccess: function onSuccess() {
-            return sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().close();
+            return sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire({
+              icon: 'success',
+              title: 'Successfully denied the post'
+            });
           }
         });
       }
