@@ -3,7 +3,6 @@ import Authenticated from '@/Layouts/Authenticated';
 import AppHead from '@/Components/AppHead';
 
 export default function Index(props) {
-    const time = new Date();
     return (
         <Authenticated
             auth={props.auth}

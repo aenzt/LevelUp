@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Icon } from '@iconify/react';
 import { Link } from "@inertiajs/inertia-react";
 import Coastline from "./coastline.jpg";
 import NavbarNew from "@/Components/NavbarNew";

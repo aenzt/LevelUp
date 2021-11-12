@@ -28,7 +28,7 @@ export default function Index(props) {
                         <span className="hidden md:inline"> User</span>
                     </Link>
                 </div>
-                <div className="overflow-x-auto bg-white rounded shadow">
+                <div className="overflow-x-auto bg-white rounded shadow mb-10">
                     <table className="w-full whitespace-nowrap">
                         <thead>
                             <tr className="font-bold text-left">

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from '@inertiajs/inertia-react';
 
 export default ({ props }) => {
     return (
@@ -49,14 +48,6 @@ export default ({ props }) => {
                                     </td>
                                 </tr>
                             ))}
-                    {/* <tr>
-                        <td className="px-6 py-4 border-t" colSpan="2">
-                            No User found.
-                        </td>
-                        <td className="px-6 py-4 border-t" colSpan="2">
-                            No Score found.
-                        </td>
-                    </tr> */}
                 </tbody>
             </table>
         </div>

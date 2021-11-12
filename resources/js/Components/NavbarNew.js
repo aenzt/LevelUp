@@ -1,7 +1,6 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { Link } from '@inertiajs/inertia-react'
 
 
@@ -11,7 +10,7 @@ function classNames(...classes) {
 
 export default function NavbarNew({props}) {
     const navigation = [
-        { name: 'Dashboard', href: '/', current: props.title=='Home' },
+        { name: 'Home', href: '/', current: props.title=='Home' },
         { name: 'Leaderboard', href: '/leaderboard', current: props.title=='Leaderboard' },
         { name: 'Submit', href: '/submit', current: props.title=='Submit' },
         { name: 'History', href: '/history', current: props.title=='History' },
@@ -35,21 +34,23 @@ export default function NavbarNew({props}) {
                 </div>
                 <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                     <div className="flex-shrink-0 flex items-center">
-                    <img
-                        className="block lg:hidden h-8 w-auto"
-                        src="https://i.ibb.co/BtKG9VX/Logo-1.png"
-                        alt="Workflow"
-                    />
-                    <img
-                        className="hidden lg:block h-8 w-auto mb-1"
-                        src="https://i.ibb.co/BtKG9VX/Logo-1.png"
-                        alt="Workflow"
-                    />
+                        <a href="/">
+                            <img
+                                className="block lg:hidden h-8 w-auto"
+                                src="https://i.ibb.co/BtKG9VX/Logo-1.png"
+                                alt="Workflow"
+                            />
+                            <img
+                                className="hidden lg:block h-8 w-auto mb-1"
+                                src="https://i.ibb.co/BtKG9VX/Logo-1.png"
+                                alt="Workflow"
+                            />
+                        </a>
                     </div>
                     <div className="hidden sm:block sm:ml-6">
                     <div className="flex space-x-4">
                         {navigation.map((item) => (
-                        <a
+                        <Link
                             key={item.name}
                             href={item.href}
                             className={classNames(
@@ -59,7 +60,7 @@ export default function NavbarNew({props}) {
                             aria-current={item.current ? 'page' : undefined}
                         >
                             {item.name}
-                        </a>
+                        </Link>
                         ))}
                     </div>
                     </div>

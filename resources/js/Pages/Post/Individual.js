@@ -1,7 +1,6 @@
 import React from "react";
 import Authenticated from "@/Layouts/Authenticated";
 import AppHead from "@/Components/AppHead";
-import Button from "@/Components/Button";
 import { Inertia } from "@inertiajs/inertia";
 import Swal from "sweetalert2";
 import withReactContent from 'sweetalert2-react-content';
