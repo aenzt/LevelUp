@@ -69,10 +69,6 @@ class SubmitController extends Controller
         $validatedData['receiptImage'] = $request->file('receiptImage')->store('post-images');
         Post::create($validatedData);
 
-        $user = User::find(auth()->user()->id);
-        $user->score = $points + $user->score;
-        $user->save();
-
         return Redirect::route('submit')->with('success', 'Submited Successfully');
     }
 

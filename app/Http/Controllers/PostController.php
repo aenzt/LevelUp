@@ -82,7 +82,7 @@ class PostController extends Controller
             $status = true;
             $post->status = $status;
             $post->save();
-            $user = User::find(auth()->user()->id);
+            $user = User::find($post->userId);
             $user->score = $points + $user->score;
             $user->save();
         } else if($request->status == "false") {
