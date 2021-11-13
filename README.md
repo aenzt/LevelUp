@@ -2,8 +2,8 @@
 
 <p align="center"><a href="https://levelup-feelit.herokuapp.com/" target="_blank"><img src="https://i.ibb.co/BtKG9VX/Logo-1.png" width="400"></a></p>
 
-#### How To Install hehe
-#### Clone the repository:
+## How To Install hehe
+#### Clone the repository
 
 
 #### Create your environment file:
