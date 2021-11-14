@@ -2,6 +2,10 @@
 
 <p align="center"><a href="https://levelup-feelit.herokuapp.com/" target="_blank"><img src="https://i.ibb.co/BtKG9VX/Logo-1.png" width="400"></a></p>
 
+## Deployed Example
+[Home](https://levelup-feelit.herokuapp.com/) <br/>
+[Dashboard](https://levelup-feelit.herokuapp.com/dashboard)
+
 ## How To Install hehe
 #### Clone the repository
 
